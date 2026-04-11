@@ -2,10 +2,14 @@
 
 int main() {
 
+    char exp[10];
     int A, B;
 
-    printf("Truth Table for AND and OR Gates\n");
-    printf("A B | AND | OR\n");
+    printf("Enter the expression: ");
+    scanf("%s", &exp);
+
+    printf("Truth Table \n");
+    printf("A B | Output\n");
     printf("-------------\n");
 
     for (int i = 0; i < 4; i++) {
@@ -13,11 +17,21 @@ int main() {
         A = (i >> 1) & 1;  // Extract first bit
         B = i & 1;         // Extract second bit
 
-        int and_result = A && B;
-        int or_result = A || B;
+        int result;
+
+        if ( exp[1] == '&'){
+            result = A && B;
+        }
+        else if (exp[1] == '|') {
+            result = A || B;
+        }
+        else {
+            printf("Invalid expression\n");
+            return 0;
+        }
 
 
-        printf("%d %d |   %d  |  %d\n", A, B, and_result, or_result);
+        printf("%d %d |   %d\n", A, B, result);
     }
 
     return 0;
