@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
 
@@ -6,7 +7,8 @@ int main() {
     int A, B;
 
     printf("Enter the expression: ");
-    scanf("%s", &exp);
+    fgets(exp, sizeof(exp), stdin);
+
 
     printf("Truth Table \n");
     printf("A B | Output\n");
@@ -19,10 +21,10 @@ int main() {
 
         int result;
 
-        if ( exp[1] == '&'){
+        if (strchr(exp, '&')){
             result = A && B;
         }
-        else if (exp[1] == '|') {
+        else if (strchr(exp,'|')) {
             result = A || B;
         }
         else {
