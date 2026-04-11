@@ -27,7 +27,9 @@ int main() {
         else if (strchr(exp,'|')) {
             result = A || B;
         }
-        else {
+        else if (strchr(exp,'^')) {
+            result = A ^ B;}
+        else{
             printf("Invalid expression\n");
             return 0;
         }
